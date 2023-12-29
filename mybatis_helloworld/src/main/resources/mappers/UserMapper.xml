@@ -4,8 +4,23 @@
 
 <mapper namespace="com.mapper.UserMapper">
 
-
     <insert id="insertUser">
         insert into t_user values(null,'admin','123456',20,'男','12345@qq.com')
     </insert>
+
+    <update id="updateUser">
+        update t_user set username='root',password='123' where id = 3
+    </update>
+
+    <delete id="deleteUser">
+        delete from t_user where id =3
+    </delete>
+    
+    <select id="getUserById" resultType="com.pojo.User">
+        select * from t_user where id =1
+    </select>
+    
+    <select id="getAllUsers" resultType="com.pojo.User">
+        select * from t_user
+    </select>
 </mapper>
