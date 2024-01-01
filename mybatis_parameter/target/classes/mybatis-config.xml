@@ -33,6 +33,7 @@
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
         <!--        <mapper resource="mappers/UserMapper.xml"/>-->
         <!--mapper接口和映射文件所在包必须一致,接口名和映射文件名必须一致-->
