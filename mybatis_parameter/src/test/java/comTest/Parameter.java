@@ -39,8 +39,9 @@ public class Parameter {
     public void testInsertUser(){
         SqlSession sqlSession= SqlSessionUtil.getSqlSession();
         UserMapper mapper=sqlSession.getMapper(UserMapper.class);
-        User user=new User(null,"root","123",18,"男","123@qq.com");
+        User user=new User(null,"qwer","123",18,"男","123@qq.com");
         mapper.insertUser(user);
+        System.out.println(user);
     }
     @Test
     public void testCheckLoginByParam(){
@@ -85,5 +86,25 @@ public class Parameter {
 //        System.out.println(map);
         Map<String, Object> map=mapper.getAllUserMap();
         System.out.println(map);
+    }
+    @Test
+    public void testGetUserByLike(){
+        SqlSession sqlSession= SqlSessionUtil.getSqlSession();
+        UserMapper mapper=sqlSession.getMapper(UserMapper.class);
+        List<User> list=mapper.getUserByLike("%a%");
+        list.forEach(System.out::println);
+    }
+    @Test
+    public void testDeleteMoveUser(){
+        SqlSession sqlSession= SqlSessionUtil.getSqlSession();
+        UserMapper mapper=sqlSession.getMapper(UserMapper.class);
+        mapper.deleteMoveUser("2,3");
+    }
+    @Test
+    public void testGetUserList(){
+        SqlSession sqlSession= SqlSessionUtil.getSqlSession();
+        UserMapper mapper=sqlSession.getMapper(UserMapper.class);
+        List<User> list=mapper.getUserList("t_user");
+        list.forEach(System.out::println);
     }
 }
