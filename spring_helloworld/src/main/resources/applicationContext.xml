@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:unit="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="helloworld" class="com.pojo.HelloWorld">
+    </bean>
+    <bean id="studentOne" class="com.until.Student">
+    </bean>
+    <bean id="studentTwo" class="com.until.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="qwer"></property>
+        <property name="age" value="23"></property>
+        <property name="gender" value="男"></property>
+    </bean>
+    <bean id="studentFour" class="com.until.Student">
+        <property name="sid" value="1003"></property>
+        <property name="sname">
+            <value><![CDATA[<zxcv>]]></value>
+        </property>
+        <property name="age" value="23"></property>
+        <property name="gender">
+            <null />
+        </property>
+    </bean>
+    <bean id="studentFive" class="com.until.Student">
+        <property name="sid" value="1004"></property>
+        <property name="sname" value="rfv"></property>
+        <property name="age" value="26"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz" ref="clazzOne"></property>
+<!--        <property name="clazz.cid" value="1"></property>
+        <property name="clazz.cname" value="ASDF"></property>-->
+<!--        <property name="clazz">
+            <bean id="clazzInner" class="com.until.Clazz">
+                <property name="cid" value="1"></property>
+                <property name="cname" value="ASDF"></property>
+            </bean>
+        </property>-->
+        <property name="hobby">
+            <array>
+                <value>唱</value>
+                <value>rap</value>
+                <value>篮球</value>
+            </array>
+        </property>
+<!--        <property name="teachers">
+            <map>
+                <entry key="10086" value-ref="teacherOne"></entry>
+                <entry key="10010" value-ref="teacherTwo"></entry>
+            </map>
+        </property>-->
+        <property name="teachers" ref="teacherMap"></property>
+    </bean>
+    <bean id="clazzOne" class="com.until.Clazz">
+        <property name="cid" value="1111"></property>
+        <property name="cname" value="QWER"></property>
+        <property name="students" ref="studentList"></property>
+<!--        <property name="students">
+            <list>
+                <ref bean="studentOne"></ref>
+                <ref bean="studentTwo"></ref>
+                <ref bean="studentFour"></ref>
+            </list>
+        </property>-->
+    </bean>
+    <bean id="teacherOne" class="com.until.Teacher">
+        <property name="tid" value="10086"></property>
+        <property name="tname" value="TGB"></property>
+    </bean>
+    <bean id="teacherTwo" class="com.until.Teacher">
+        <property name="tid" value="10010"></property>
+        <property name="tname" value="YHN"></property>
+    </bean>
+    <unit:list id="studentList">
+        <ref bean="studentOne"></ref>
+        <ref bean="studentTwo"></ref>
+        <ref bean="studentFour"></ref>
+    </unit:list>
+    <unit:map id="teacherMap">
+        <entry key="10086" value-ref="teacherOne"></entry>
+        <entry key="10010" value-ref="teacherTwo"></entry>
+    </unit:map>
+    <bean id="studentSix" class="com.until.Student"
+    p:sid="1005" p:sname="tyui" p:teachers-ref="teacherMap"></bean>
+</beans>
