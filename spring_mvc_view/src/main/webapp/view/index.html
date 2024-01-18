@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/hello}" method="post">
+    用户：<input type="text" name="name"><br/>
+    密码：<input type="text" name="password"><br/>
+    <input type="submit" value="Hello">
+</form><br/>
+<a th:href="@{/test/mav}">Mav跳转</a><br/>
+<a th:href="@{/test/model}">Model跳转</a><br/>
+<a th:href="@{/test/modelMap}">ModelMap跳转</a><br/>
+<a th:href="@{/test/map}">Map跳转</a><br/>
+<a th:href="@{/test/session}">会话域共享</a><br/>
+<a th:href="@{/test/application}">应用域共享</a><br/>
+</body>
+</html>
