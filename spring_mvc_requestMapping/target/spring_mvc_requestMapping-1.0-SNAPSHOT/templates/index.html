@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>index.html</h1>
+<a th:href="@{/test/hello}">@RequestMapping注解所标识的位置</a><br/>
+<a th:href="@{/test/world}">@RequestMapping注解所value属性</a><br/>
+<form th:action="@{/test/hello}" method="post">
+    <input type="submit" value="测试@RequestMapping注解所method属性"/><br/>
+</form><br/>
+<a th:href="@{/test/qwer/testant}">@RequestMapping注解支持ant风格路径</a><br/>
+<a th:href="@{/test/rest/admin/1}">@RequestMapping注解value属性占位符</a><br/>
+<hr/>
+<form th:action="@{/test/param/servletAPI}" method="post">
+    用户：<input type="text" name="username"/><br/>
+    密码：<input type="text" name="password"/><br/>
+    <input type="submit" value="提交"/>
+</form>
+<hr/>
+<form th:action="@{/test/param}" method="post">
+    用户：<input type="text" name="username"/><br/>
+    密码：<input type="text" name="password"/><br/>
+    <input type="submit" value="提交"/>
+</form>
+</body>
+</html>
