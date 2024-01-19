@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HelloController {
-    @RequestMapping("/")
+/*    @RequestMapping("/")
     public String index() {
         //设置视图名称
         return "index";
-    }
+    }*/
 
     @RequestMapping("/hello")
     public String hello(User user) {
